@@ -47,7 +47,14 @@ public class Menu {
                 case 5 -> System.out.println("Opção 5");
                 case 6 -> System.out.println("Opção 6");
                 case 7 -> System.out.println("Opção 7");
-                case 8 -> System.out.println("Opção 8");
+                case 8 -> {
+                    if(!users.isEmpty()){
+                        UserControl.remove(users);
+                    }
+                    else{
+                        System.out.println("Não há perfil no iFace");
+                    }
+                }
                 case 9 -> System.out.println("Opção 9");
                 case 10 -> System.out.println("Opção 10");
                 case 11 -> UserControl.printAll(users);

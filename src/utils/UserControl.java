@@ -80,6 +80,33 @@ public class UserControl {
         }
 
     }
+    public static void remove(ArrayList<User> users){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Informe o login  do perfil que deseja remover:");
+        String login = input.nextLine();
+        System.out.println("Digite a senha:");
+        String password = input.nextLine();
+
+        User found = meet(users,login,password);
+        if( found == null){
+            System.out.println("Perfil não localizado, verifique o login e senha");
+        }
+        else if(found.getLogin().equals(login)){
+            System.out.println("Perfil do usuário " + found.getName()
+            + " será removido, tem certeza? [S/N]");
+
+            String delete = input.nextLine();
+
+            if(delete.equals("s")){
+                users.remove(found);
+
+                System.out.println("Perfil removido com sucesso!");
+            }
+            else{
+                System.out.println("Cancelada a remoção");
+            }
+        }
+    }
 
     public static void print(User newUser) {
         System.out.println("\nNome: " + newUser.getName()
